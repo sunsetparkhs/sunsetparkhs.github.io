@@ -1,0 +1,700 @@
+<html lang="en"><head>
+        <base href="/">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <!--  <link rel='shortcut icon' type='image/x-icon' href='/ui/assets/img/favicon.ico' /> -->
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+	
+    <title>Sign In - NYC Public Schools</title>
+    <meta name="description" content="Sign in page used by multiple NYC Department of Education websites for logging in.">
+	
+	<link rel="icon" href="https://www.nycenet.edu/ui/apps/resources/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="https://www.nycenet.edu/ui/apps/resources/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="https://www.nycenet.edu/ui/apps/resources/favicon/favicon-180.png">
+<link rel="manifest" href="data:application/manifest+json,{
+  &quot;icons&quot;: [
+    {
+      &quot;src&quot;: &quot;https://www.nycenet.edu/ui/apps/resources/favicon/favicon-192.png&quot;,
+      &quot;type&quot;: &quot;image/png&quot;,
+      &quot;sizes&quot;: &quot;192x192&quot;
+    },
+    {
+      &quot;src&quot;: &quot;https://www.nycenet.edu/ui/apps/resources/favicon/favicon-512.png&quot;,
+      &quot;type&quot;: &quot;image/png&quot;,
+      &quot;sizes&quot;: &quot;512x512&quot;
+    }
+  ]
+}">
+
+	
+	<style>
+        /* Disable Edge default password reveal */
+        ::-ms-reveal {
+            display: none;
+        }
+    </style>
+    <script>
+        function detectIE() {
+          const userAgent = window.navigator.userAgent;
+        
+          const isIE = userAgent.indexOf('MSIE ') > -1 || userAgent.indexOf('Trident/') > -1;
+        
+          if (isIE) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        
+        if(detectIE()){
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '/usc/css/stateless.css';
+            document.head.appendChild(link);
+            
+           var customCSS=":root{--sso-blue:#0d6efd;--sso-indigo:#6610f2;--sso-purple:#6f42c1;--sso-pink:#d63384;--sso-red:#dc3545;--sso-orange:#fd7e14;--sso-yellow:#ffc107;--sso-green:#198754;--sso-teal:#20c997;--sso-cyan:#0dcaf0;--sso-black:#000;--sso-white:#fff;--sso-gray:#6c757d;--sso-gray-dark:#343a40;--sso-gray-100:#f8f9fa;--sso-gray-200:#e9ecef;--sso-gray-300:#dee2e6;--sso-gray-400:#ced4da;--sso-gray-500:#adb5bd;--sso-gray-600:#6c757d;--sso-gray-700:#495057;--sso-gray-800:#343a40;--sso-gray-900:#212529;--sso-primary:#0051eb;--sso-secondary:#6c757d;--sso-success:#28a745;--sso-info:#0dcaf0;--sso-warning:#fa7d3f;--sso-danger:#de363b;--sso-light:#eee;--sso-dark:#212529;--sso-white:#fff;--sso-navy:#002169;--sso-blue-rgb:17,118,176;--sso-forest-rgb:41,130,105;--sso-moss-rgb:153,204,102;--sso-ocean-rgb:46,138,161;--sso-seafoam-rgb:124,213,183;--sso-fuchsia-rgb:204,0,153;--sso-sun-rgb:255,241,0;--sso-astro-rgb:79,82,163;--sso-primary-rgb:0,81,235;--sso-secondary-rgb:108,117,125;--sso-success-rgb:40,167,69;--sso-info-rgb:13,202,240;--sso-warning-rgb:250,125,63;--sso-danger-rgb:222,54,59;--sso-light-rgb:238,238,238;--sso-dark-rgb:33,37,41;--sso-white-rgb:255,255,255;--sso-navy-rgb:0,33,105;--sso-white-rgb:255,255,255;--sso-black-rgb:0,0,0;--sso-body-color-rgb:33,37,41;--sso-body-bg-rgb:240,240,240;--sso-font-sans-serif:Arial,san-serif;--sso-font-monospace:SFMono-Regular,Menlo,Monaco,Consolas,\"Liberation Mono\",\"Courier New\",monospace;--sso-gradient:linear-gradient(180deg,#ffffff26,#fff0);--sso-body-font-family:var(--sso-font-sans-serif);--sso-body-font-size:1rem;--sso-body-font-weight:400;--sso-body-line-height:1.5;--sso-body-color:#212529;--sso-body-bg:#f0f0f0;--sso-border-width:1px;--sso-border-style:solid;--sso-border-color:#ccc;--sso-border-color-translucent:#0000002d;--sso-border-radius:.375rem;--sso-border-radius-sm:.25rem;--sso-border-radius-lg:.5rem;--sso-border-radius-xl:1rem;--sso-border-radius-2xl:2rem;--sso-border-radius-pill:50rem;--sso-link-color:#0051eb;--sso-link-hover-color:#fa7d3f;--sso-code-color:#d63384;--sso-highlight-bg:#fff3cd}:host,:root{--fa-style-family-sharp-duotone:\"Font Awesome 6 Sharp Duotone\";--fa-font-sharp-duotone-thin:normal 100 1em/1 \"Font Awesome 6 Sharp Duotone\";--fa-font-sharp-duotone-light:normal 300 1em/1 \"Font Awesome 6 Sharp Duotone\";--fa-font-sharp-duotone-regular:normal 400 1em/1 \"Font Awesome 6 Sharp Duotone\";--fa-font-sharp-duotone-solid:normal 900 1em/1 \"Font Awesome 6 Sharp Duotone\";--fa-style-family-sharp:\"Font Awesome 6 Sharp\";--fa-font-sharp-thin:normal 100 1em/1 \"Font Awesome 6 Sharp\";--fa-font-sharp-light:normal 300 1em/1 \"Font Awesome 6 Sharp\";--fa-font-sharp-regular:normal 400 1em/1 \"Font Awesome 6 Sharp\";--fa-font-sharp-solid:normal 900 1em/1 \"Font Awesome 6 Sharp\";--fa-style-family-duotone:\"Font Awesome 6 Duotone\";--fa-font-duotone-thin:normal 100 1em/1 \"Font Awesome 6 Duotone\"}.body-bg-image{background-color:#004dbc}.py-3{padding-top:1.25rem!important;padding-bottom:1.25rem!important}.px-1{padding-right:.5rem!important;padding-left:.5rem!important}.h-100{height:100%!important}body,html{height:100%}body{margin:0;font-family:var(--sso-body-font-family);font-size:var(--sso-body-font-size);font-weight:var(--sso-body-font-weight);line-height:var(--sso-body-line-height);color:var(--sso-body-color);text-align:var(--sso-body-text-align);background-color:var(--sso-body-bg);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:#0000}*,::before,::after{box-sizing:border-box}body{display:block;margin:8px}.container,.container-fluid,.container-xl,.container-xxl{--sso-gutter-x:1.5rem;--sso-gutter-y:0;width:100%;padding-right:calc(var(--sso-gutter-x)*0.5);padding-left:calc(var(--sso-gutter-x)*0.5);margin-right:auto;margin-left:auto}.row{--sso-gutter-x:1.5rem;--sso-gutter-y:0;display:flex;flex-wrap:wrap;margin-top:calc(-1*var(--sso-gutter-y));margin-right:calc(-0.5*var(--sso-gutter-x));margin-left:calc(-0.5*var(--sso-gutter-x))}div{display:block;unicode-bidi:isolate}.rounded-4{border-radius:var(--sso-border-radius-xl)!important}.mb-6{margin-bottom:3.125rem!important}.flex-column{flex-direction:column!important}.shadow{box-shadow:0 .5rem 1rem #00000026!important}.d-flex{display:flex!important}.title-form-card.card:nth-child(1){background-color:#002169;border-right:none;padding-top:1.25rem;padding-bottom:1.25rem}.card{--sso-card-spacer-y:1rem;--sso-card-spacer-x:1rem;--sso-card-title-spacer-y:.5rem;--sso-card-border-width:1px;--sso-card-border-color:var(--sso-border-color-translucent);--sso-card-border-radius:1rem;--sso-card-inner-border-radius:calc(0.375rem-1px);--sso-card-cap-padding-y:.5rem;--sso-card-cap-padding-x:1rem;--sso-card-cap-bg:#00000008;--sso-card-bg:#fff;--sso-card-img-overlay-padding:1rem;--sso-card-group-margin:.75rem;position:relative;display:flex;flex-direction:column;min-width:0;height:var(--sso-card-height);word-wrap:break-word;background-color:var(--sso-card-bg);background-clip:border-box;border:var(--sso-card-border-width)solid var(--sso-card-border-color);border-radius:var(--sso-card-border-radius)}.text-center{text-align:center!important}.mb-4{margin-bottom:1.875rem!important}.mt-6{margin-top:3.125rem!important}.mx-4{margin-right:1.875rem!important;margin-left:1.875rem!important}h1,.h1{font-size:calc(1.375rem+1.5vw)}h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{display:block;font-size:2em;margin-block-start:.67em;margin-block-end:.67em;margin-inline-start:0;margin-inline-end:0;font-weight:700;unicode-bidi:isolate}button:not(:disabled),[type=\"button\"]:not(:disabled),[type=\"reset\"]:not(:disabled),[type=\"submit\"]:not(:disabled){cursor:pointer}.btn-danger-subtle{--sso-btn-color:#000;--sso-btn-bg:#f4b9bb;--sso-btn-border-color:#f4b9bb;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#cf9e9f;--sso-btn-hover-border-color:#c39496;--sso-btn-focus-shadow-rgb:207,158,159;--sso-btn-active-color:#000;--sso-btn-active-bg:#c39496;--sso-btn-active-border-color:#b78b8c;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#f4b9bb;--sso-btn-disabled-border-color:#f4b9bb}.rounded-pill{border-radius:var(--sso-border-radius-pill)!important}.gap-3{gap:1.25rem!important}.m-auto{margin:auto!important}.align-items-center{align-items:center!important}.justify-content-between{justify-content:space-between!important}.shadow-sm{box-shadow:0 .125rem.25rem #00000013!important}.d-flex{display:flex!important}.btn-sm,.btn-group-sm>.btn{--sso-btn-padding-y:.25rem;--sso-btn-padding-x:.5rem;--sso-btn-font-size:.875rem;--sso-btn-border-radius:.25rem}.btn{--sso-btn-padding-x:1rem;--sso-btn-padding-y:.65rem;--sso-btn-font-size:1.125rem;--sso-btn-font-weight:400;--sso-btn-line-height:1.5;--sso-btn-color:#212529;--sso-btn-bg:transparent;--sso-btn-border-width:1px;--sso-btn-border-color:transparent;--sso-btn-border-radius:.375rem;--sso-btn-hover-border-color:transparent;--sso-btn-box-shadow:inset 0 1px 0 #ffffff26 0 1px 1px #00000013;--sso-btn-disabled-opacity:.65;--sso-btn-focus-box-shadow:0 0 0 .25rem rgba(var(--sso-btn-focus-shadow-rgb),0.5);display:inline-block;padding:var(--sso-btn-padding-y)var(--sso-btn-padding-x);font-family:var(--sso-btn-font-family);font-size:var(--sso-btn-font-size);font-weight:var(--sso-btn-font-weight);line-height:var(--sso-btn-line-height);color:var(--sso-btn-color);text-align:center;vertical-align:middle;cursor:pointer;user-select:none;border:var(--sso-btn-border-width)solid var(--sso-btn-border-color);border-radius:var(--sso-btn-border-radius);background-color:var(--sso-btn-bg);transition:color.15s ease-in-out,background-color.15s ease-in-out,border-color.15s ease-in-out,box-shadow.15s ease-in-out}button,[type=\"button\"],[type=\"reset\"],[type=\"submit\"]{-webkit-appearance:button}button,select{text-transform:none}input,button,select,optgroup,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button{border-radius:0;appearance:auto;text-rendering:auto;color:buttontext;letter-spacing:normal;word-spacing:normal;line-height:normal;text-transform:none;text-indent:0;text-shadow:none;display:inline-block;text-align:center;cursor:default;box-sizing:border-box;background-color:buttonface;margin:0;padding-block:1px;padding-inline:6px;border-width:2px;border-style:outset;border-color:buttonborder;border-image:initial}.form-label{margin-bottom:.35rem}label{display:inline-block;cursor:default}.form-control{display:block;width:100%;padding:.65rem 1rem;font-size:1.125rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;background-clip:padding-box;border:1px solid #ccc;appearance:none;border-radius:.375rem;transition:border-color.15s ease-in-out,box-shadow.15s ease-in-out}input,button,select,optgroup,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}user agent stylesheet input:not([type=\"image\" i],[type=\"range\" i],[type=\"checkbox\" i],[type=\"radio\" i]){overflow-clip-margin:0!important;overflow:clip!important}input[type=\"text\" i]{padding-block:1px;padding-inline:2px}input{text-rendering:auto;color:fieldtext;letter-spacing:normal;word-spacing:normal;line-height:normal;text-transform:none;text-indent:0;text-shadow:none;display:inline-block;text-align:start;appearance:auto;-webkit-rtl-ordering:logical;cursor:text;background-color:field;margin:0;padding:1px 0;border-width:2px;border-style:inset;border-color:light-dark(#767676,#858585);border-image:initial;padding-block:1px;padding-inline:2px}@media(min-width:768px){.col-md{flex:1 0 0}.row-cols-md-auto>*{flex:0 0 auto;width:auto}.row-cols-md-1>*{flex:0 0 auto;width:100%}.row-cols-md-2>*{flex:0 0 auto;width:50%}.row-cols-md-3>*{flex:0 0 auto;width:33.333333%}.row-cols-md-4>*{flex:0 0 auto;width:25%}.row-cols-md-5>*{flex:0 0 auto;width:20%}.row-cols-md-6>*{flex:0 0 auto;width:16.666667%}.col-md-auto{flex:0 0 auto;width:auto}.col-md-1{flex:0 0 auto;width:8.333333%}.col-md-2{flex:0 0 auto;width:16.666667%}.col-md-3{flex:0 0 auto;width:25%}.col-md-4{flex:0 0 auto;width:33.333333%}.col-md-5{flex:0 0 auto;width:41.666667%}.col-md-6{flex:0 0 auto;width:50%}.col-md-7{flex:0 0 auto;width:58.333333%}.col-md-8{flex:0 0 auto;width:66.666667%}.col-md-9{flex:0 0 auto;width:75%}.col-md-10{flex:0 0 auto;width:83.333333%}.col-md-11{flex:0 0 auto;width:91.666667%}.col-md-12{flex:0 0 auto;width:100%}.offset-md-0{margin-left:0}.offset-md-1{margin-left:8.333333%}.offset-md-2{margin-left:16.666667%}.offset-md-3{margin-left:25%}.offset-md-4{margin-left:33.333333%}.offset-md-5{margin-left:41.666667%}.offset-md-6{margin-left:50%}.offset-md-7{margin-left:58.333333%}.offset-md-8{margin-left:66.666667%}.offset-md-9{margin-left:75%}.offset-md-10{margin-left:83.333333%}.offset-md-11{margin-left:91.666667%}.g-md-0,.gx-md-0{--sso-gutter-x:0}.g-md-0,.gy-md-0{--sso-gutter-y:0}.g-md-1,.gx-md-1{--sso-gutter-x:.25rem}.g-md-1,.gy-md-1{--sso-gutter-y:.25rem}.g-md-2,.gx-md-2{--sso-gutter-x:.5rem}.g-md-2,.gy-md-2{--sso-gutter-y:.5rem}.g-md-3,.gx-md-3{--sso-gutter-x:1rem}.g-md-3,.gy-md-3{--sso-gutter-y:1rem}.g-md-4,.gx-md-4{--sso-gutter-x:1.5rem}.g-md-4,.gy-md-4{--sso-gutter-y:1.5rem}.g-md-5,.gx-md-5{--sso-gutter-x:3rem}.g-md-5,.gy-md-5{--sso-gutter-y:3rem}}@media(min-width:992px){.col-lg{flex:1 0 0}.row-cols-lg-auto>*{flex:0 0 auto;width:auto}.row-cols-lg-1>*{flex:0 0 auto;width:100%}.row-cols-lg-2>*{flex:0 0 auto;width:50%}.row-cols-lg-3>*{flex:0 0 auto;width:33.333333%}.row-cols-lg-4>*{flex:0 0 auto;width:25%}.row-cols-lg-5>*{flex:0 0 auto;width:20%}.row-cols-lg-6>*{flex:0 0 auto;width:16.666667%}.col-lg-auto{flex:0 0 auto;width:auto}.col-lg-1{flex:0 0 auto;width:8.333333%}.col-lg-2{flex:0 0 auto;width:16.666667%}.col-lg-3{flex:0 0 auto;width:25%}.col-lg-4{flex:0 0 auto;width:33.333333%}.col-lg-5{flex:0 0 auto;width:41.666667%}.col-lg-6{flex:0 0 auto;width:50%}.col-lg-7{flex:0 0 auto;width:58.333333%}.col-lg-8{flex:0 0 auto;width:66.666667%}.col-lg-9{flex:0 0 auto;width:75%}.col-lg-10{flex:0 0 auto;width:83.333333%}.col-lg-11{flex:0 0 auto;width:91.666667%}.col-lg-12{flex:0 0 auto;width:100%}.offset-lg-0{margin-left:0}.offset-lg-1{margin-left:8.333333%}.offset-lg-2{margin-left:16.666667%}.offset-lg-3{margin-left:25%}.offset-lg-4{margin-left:33.333333%}.offset-lg-5{margin-left:41.666667%}.offset-lg-6{margin-left:50%}.offset-lg-7{margin-left:58.333333%}.offset-lg-8{margin-left:66.666667%}.offset-lg-9{margin-left:75%}.offset-lg-10{margin-left:83.333333%}.offset-lg-11{margin-left:91.666667%}.g-lg-0,.gx-lg-0{--sso-gutter-x:0}.g-lg-0,.gy-lg-0{--sso-gutter-y:0}.g-lg-1,.gx-lg-1{--sso-gutter-x:.25rem}.g-lg-1,.gy-lg-1{--sso-gutter-y:.25rem}.g-lg-2,.gx-lg-2{--sso-gutter-x:.5rem}.g-lg-2,.gy-lg-2{--sso-gutter-y:.5rem}.g-lg-3,.gx-lg-3{--sso-gutter-x:1rem}.g-lg-3,.gy-lg-3{--sso-gutter-y:1rem}.g-lg-4,.gx-lg-4{--sso-gutter-x:1.5rem}.g-lg-4,.gy-lg-4{--sso-gutter-y:1.5rem}.g-lg-5,.gx-lg-5{--sso-gutter-x:3rem}.g-lg-5,.gy-lg-5{--sso-gutter-y:3rem}}@media(min-width:1200px){.col-xl{flex:1 0 0}.row-cols-xl-auto>*{flex:0 0 auto;width:auto}.row-cols-xl-1>*{flex:0 0 auto;width:100%}.row-cols-xl-2>*{flex:0 0 auto;width:50%}.row-cols-xl-3>*{flex:0 0 auto;width:33.333333%}.row-cols-xl-4>*{flex:0 0 auto;width:25%}.row-cols-xl-5>*{flex:0 0 auto;width:20%}.row-cols-xl-6>*{flex:0 0 auto;width:16.666667%}.col-xl-auto{flex:0 0 auto;width:auto}.col-xl-1{flex:0 0 auto;width:8.333333%}.col-xl-2{flex:0 0 auto;width:16.666667%}.col-xl-3{flex:0 0 auto;width:25%}.col-xl-4{flex:0 0 auto;width:33.333333%}.col-xl-5{flex:0 0 auto;width:41.666667%}.col-xl-6{flex:0 0 auto;width:50%}.col-xl-7{flex:0 0 auto;width:58.333333%}.col-xl-8{flex:0 0 auto;width:66.666667%}.col-xl-9{flex:0 0 auto;width:75%}.col-xl-10{flex:0 0 auto;width:83.333333%}.col-xl-11{flex:0 0 auto;width:91.666667%}.col-xl-12{flex:0 0 auto;width:100%}.offset-xl-0{margin-left:0}.offset-xl-1{margin-left:8.333333%}.offset-xl-2{margin-left:16.666667%}.offset-xl-3{margin-left:25%}.offset-xl-4{margin-left:33.333333%}.offset-xl-5{margin-left:41.666667%}.offset-xl-6{margin-left:50%}.offset-xl-7{margin-left:58.333333%}.offset-xl-8{margin-left:66.666667%}.offset-xl-9{margin-left:75%}.offset-xl-10{margin-left:83.333333%}.offset-xl-11{margin-left:91.666667%}.g-xl-0,.gx-xl-0{--sso-gutter-x:0}.g-xl-0,.gy-xl-0{--sso-gutter-y:0}.g-xl-1,.gx-xl-1{--sso-gutter-x:.25rem}.g-xl-1,.gy-xl-1{--sso-gutter-y:.25rem}.g-xl-2,.gx-xl-2{--sso-gutter-x:.5rem}.g-xl-2,.gy-xl-2{--sso-gutter-y:.5rem}.g-xl-3,.gx-xl-3{--sso-gutter-x:1rem}.g-xl-3,.gy-xl-3{--sso-gutter-y:1rem}.g-xl-4,.gx-xl-4{--sso-gutter-x:1.5rem}.g-xl-4,.gy-xl-4{--sso-gutter-y:1.5rem}.g-xl-5,.gx-xl-5{--sso-gutter-x:3rem}.g-xl-5,.gy-xl-5{--sso-gutter-y:3rem}}@media(min-width:1400px){.col-xxl{flex:1 0 0}.row-cols-xxl-auto>*{flex:0 0 auto;width:auto}.row-cols-xxl-1>*{flex:0 0 auto;width:100%}.row-cols-xxl-2>*{flex:0 0 auto;width:50%}.row-cols-xxl-3>*{flex:0 0 auto;width:33.333333%}.row-cols-xxl-4>*{flex:0 0 auto;width:25%}.row-cols-xxl-5>*{flex:0 0 auto;width:20%}.row-cols-xxl-6>*{flex:0 0 auto;width:16.666667%}.col-xxl-auto{flex:0 0 auto;width:auto}.col-xxl-1{flex:0 0 auto;width:8.333333%}.col-xxl-2{flex:0 0 auto;width:16.666667%}.col-xxl-3{flex:0 0 auto;width:25%}.col-xxl-4{flex:0 0 auto;width:33.333333%}.col-xxl-5{flex:0 0 auto;width:41.666667%}.col-xxl-6{flex:0 0 auto;width:50%}.col-xxl-7{flex:0 0 auto;width:58.333333%}.col-xxl-8{flex:0 0 auto;width:66.666667%}.col-xxl-9{flex:0 0 auto;width:75%}.col-xxl-10{flex:0 0 auto;width:83.333333%}.col-xxl-11{flex:0 0 auto;width:91.666667%}.col-xxl-12{flex:0 0 auto;width:100%}.offset-xxl-0{margin-left:0}.offset-xxl-1{margin-left:8.333333%}.offset-xxl-2{margin-left:16.666667%}.offset-xxl-3{margin-left:25%}.offset-xxl-4{margin-left:33.333333%}.offset-xxl-5{margin-left:41.666667%}.offset-xxl-6{margin-left:50%}.offset-xxl-7{margin-left:58.333333%}.offset-xxl-8{margin-left:66.666667%}.offset-xxl-9{margin-left:75%}.offset-xxl-10{margin-left:83.333333%}.offset-xxl-11{margin-left:91.666667%}.g-xxl-0,.gx-xxl-0{--sso-gutter-x:0}.g-xxl-0,.gy-xxl-0{--sso-gutter-y:0}.g-xxl-1,.gx-xxl-1{--sso-gutter-x:.25rem}.g-xxl-1,.gy-xxl-1{--sso-gutter-y:.25rem}.g-xxl-2,.gx-xxl-2{--sso-gutter-x:.5rem}.g-xxl-2,.gy-xxl-2{--sso-gutter-y:.5rem}.g-xxl-3,.gx-xxl-3{--sso-gutter-x:1rem}.g-xxl-3,.gy-xxl-3{--sso-gutter-y:1rem}.g-xxl-4,.gx-xxl-4{--sso-gutter-x:1.5rem}.g-xxl-4,.gy-xxl-4{--sso-gutter-y:1.5rem}.g-xxl-5,.gx-xxl-5{--sso-gutter-x:3rem}.g-xxl-5,.gy-xxl-5{--sso-gutter-y:3rem}}.title-form-card.card:nth-child(1){background-color:#002169;border-right:none;padding-top:1.25rem;padding-bottom:1.25rem}.title-form-card.card.tab-content{border-bottom-right-radius:1rem}@media(max-width:991.98px){.title-form-card.card:nth-child(1){-webkit-border-bottom-left-radius:0;-webkit-border-bottom-right-radius:0;-moz-border-radius-bottomleft:0;-moz-border-radius-bottomright:0;border-bottom-left-radius:0;border-bottom-right-radius:0}.title-form-card.card:nth-child(2){-webkit-border-top-left-radius:0;-webkit-border-top-right-radius:0;-moz-border-radius-topleft:0;-moz-border-radius-topright:0;border-top-left-radius:0;border-top-right-radius:0}}@media(min-width:992px){.title-form-card.card{width:50%}.title-form-card.card:nth-child(1){-webkit-border-top-right-radius:0;-webkit-border-bottom-right-radius:0;-moz-border-radius-topright:0;-moz-border-radius-bottomright:0;border-top-right-radius:0;border-bottom-right-radius:0}.title-form-card.card:nth-child(2){-webkit-border-top-left-radius:0;-webkit-border-bottom-left-radius:0;-moz-border-radius-topleft:0;-moz-border-radius-bottomleft:0;border-top-left-radius:0;border-bottom-left-radius:0}}.btn{--sso-btn-padding-x:1rem;--sso-btn-padding-y:.65rem;--sso-btn-font-size:1.125rem;--sso-btn-font-weight:400;--sso-btn-line-height:1.5;--sso-btn-color:#212529;--sso-btn-bg:transparent;--sso-btn-border-width:1px;--sso-btn-border-color:transparent;--sso-btn-border-radius:.375rem;--sso-btn-hover-border-color:transparent;--sso-btn-box-shadow:inset 0 1px 0 #ffffff26 0 1px 1px #00000013;--sso-btn-disabled-opacity:.65;--sso-btn-focus-box-shadow:0 0 0 .25rem rgba(var(--sso-btn-focus-shadow-rgb),0.5);display:inline-block;padding:var(--sso-btn-padding-y)var(--sso-btn-padding-x);font-family:var(--sso-btn-font-family);font-size:var(--sso-btn-font-size);font-weight:var(--sso-btn-font-weight);line-height:var(--sso-btn-line-height);color:var(--sso-btn-color);text-align:center;vertical-align:middle;cursor:pointer;user-select:none;border:var(--sso-btn-border-width)solid var(--sso-btn-border-color);border-radius:var(--sso-btn-border-radius);background-color:var(--sso-btn-bg);transition:color.15s ease-in-out,background-color.15s ease-in-out,border-color.15s ease-in-out,box-shadow.15s ease-in-out}@media(prefers-reduced-motion:reduce){.btn{transition:none}}.btn:hover{color:var(--sso-btn-hover-color);background-color:var(--sso-btn-hover-bg);border-color:var(--sso-btn-hover-border-color)}.btn-check+.btn:hover{color:var(--sso-btn-color);background-color:var(--sso-btn-bg);border-color:var(--sso-btn-border-color)}.btn:focus-visible{color:var(--sso-btn-hover-color);background-color:var(--sso-btn-hover-bg);border-color:var(--sso-btn-hover-border-color);outline:0;box-shadow:var(--sso-btn-focus-box-shadow)}.btn-check:focus-visible+.btn{border-color:var(--sso-btn-hover-border-color);outline:0;box-shadow:var(--sso-btn-focus-box-shadow)}.btn-check:checked+.btn,:not(.btn-check)+.btn:active,.btn:first-child:active,.btn.active,.btn.show{color:var(--sso-btn-active-color);background-color:var(--sso-btn-active-bg);border-color:var(--sso-btn-active-border-color)}.btn-check:checked+.btn:focus-visible,:not(.btn-check)+.btn:active:focus-visible,.btn:first-child:active:focus-visible,.btn.active:focus-visible,.btn.show:focus-visible{box-shadow:var(--sso-btn-focus-box-shadow)}.btn:disabled,.btn.disabled,fieldset:disabled.btn{color:var(--sso-btn-disabled-color);pointer-events:none;background-color:var(--sso-btn-disabled-bg);border-color:var(--sso-btn-disabled-border-color);opacity:var(--sso-btn-disabled-opacity)}.btn-primary{--sso-btn-color:#fff;--sso-btn-bg:#0051eb;--sso-btn-border-color:#0051eb;--sso-btn-hover-color:#fff;--sso-btn-hover-bg:#0045c8;--sso-btn-hover-border-color:#0041bc;--sso-btn-focus-shadow-rgb:38,107,238;--sso-btn-active-color:#fff;--sso-btn-active-bg:#0041bc;--sso-btn-active-border-color:#003db0;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#fff;--sso-btn-disabled-bg:#0051eb;--sso-btn-disabled-border-color:#0051eb}.btn-secondary{--sso-btn-color:#fff;--sso-btn-bg:#6c757d;--sso-btn-border-color:#6c757d;--sso-btn-hover-color:#fff;--sso-btn-hover-bg:#5c636a;--sso-btn-hover-border-color:#565e64;--sso-btn-focus-shadow-rgb:130,138,145;--sso-btn-active-color:#fff;--sso-btn-active-bg:#565e64;--sso-btn-active-border-color:#51585e;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#fff;--sso-btn-disabled-bg:#6c757d;--sso-btn-disabled-border-color:#6c757d}.btn-success{--sso-btn-color:#000;--sso-btn-bg:#28a745;--sso-btn-border-color:#28a745;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#48b461;--sso-btn-hover-border-color:#3eb058;--sso-btn-focus-shadow-rgb:34,142,59;--sso-btn-active-color:#000;--sso-btn-active-bg:#53b96a;--sso-btn-active-border-color:#3eb058;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#28a745;--sso-btn-disabled-border-color:#28a745}.btn-info{--sso-btn-color:#000;--sso-btn-bg:#0dcaf0;--sso-btn-border-color:#0dcaf0;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#31d2f2;--sso-btn-hover-border-color:#25cff2;--sso-btn-focus-shadow-rgb:11,172,204;--sso-btn-active-color:#000;--sso-btn-active-bg:#3dd5f3;--sso-btn-active-border-color:#25cff2;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#0dcaf0;--sso-btn-disabled-border-color:#0dcaf0}.btn-warning{--sso-btn-color:#000;--sso-btn-bg:#fa7d3f;--sso-btn-border-color:#fa7d3f;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#fb915c;--sso-btn-hover-border-color:#fb8a52;--sso-btn-focus-shadow-rgb:213,106,54;--sso-btn-active-color:#000;--sso-btn-active-bg:#fb9765;--sso-btn-active-border-color:#fb8a52;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#fa7d3f;--sso-btn-disabled-border-color:#fa7d3f}.btn-danger{--sso-btn-color:#000;--sso-btn-bg:#de363b;--sso-btn-border-color:#de363b;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#e35458;--sso-btn-hover-border-color:#e14a4f;--sso-btn-focus-shadow-rgb:189,46,50;--sso-btn-active-color:#000;--sso-btn-active-bg:#e55e62;--sso-btn-active-border-color:#e14a4f;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#de363b;--sso-btn-disabled-border-color:#de363b}.btn-light{--sso-btn-color:#000;--sso-btn-bg:#eee;--sso-btn-border-color:#eee;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#cacaca;--sso-btn-hover-border-color:#bebebe;--sso-btn-focus-shadow-rgb:202,202,202;--sso-btn-active-color:#000;--sso-btn-active-bg:#bebebe;--sso-btn-active-border-color:#b3b3b3;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#eee;--sso-btn-disabled-border-color:#eee}.btn-dark{--sso-btn-color:#fff;--sso-btn-bg:#212529;--sso-btn-border-color:#212529;--sso-btn-hover-color:#fff;--sso-btn-hover-bg:#424649;--sso-btn-hover-border-color:#373b3e;--sso-btn-focus-shadow-rgb:66,70,73;--sso-btn-active-color:#fff;--sso-btn-active-bg:#4d5154;--sso-btn-active-border-color:#373b3e;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#fff;--sso-btn-disabled-bg:#212529;--sso-btn-disabled-border-color:#212529}.btn-white{--sso-btn-color:#000;--sso-btn-bg:#fff;--sso-btn-border-color:#fff;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#fff;--sso-btn-hover-border-color:#fff;--sso-btn-focus-shadow-rgb:217,217,217;--sso-btn-active-color:#000;--sso-btn-active-bg:#fff;--sso-btn-active-border-color:#fff;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#fff;--sso-btn-disabled-border-color:#fff}.btn-navy{--sso-btn-color:#fff;--sso-btn-bg:#002169;--sso-btn-border-color:#002169;--sso-btn-hover-color:#fff;--sso-btn-hover-bg:#001c59;--sso-btn-hover-border-color:#001a54;--sso-btn-focus-shadow-rgb:38,66,128;--sso-btn-active-color:#fff;--sso-btn-active-bg:#001a54;--sso-btn-active-border-color:#00194f;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#fff;--sso-btn-disabled-bg:#002169;--sso-btn-disabled-border-color:#002169}.btn-outline-primary{--sso-btn-color:#0051eb;--sso-btn-border-color:#0051eb;--sso-btn-hover-color:#fff;--sso-btn-hover-bg:#0051eb;--sso-btn-hover-border-color:#0051eb;--sso-btn-focus-shadow-rgb:0,81,235;--sso-btn-active-color:#fff;--sso-btn-active-bg:#0051eb;--sso-btn-active-border-color:#0051eb;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#0051eb;--sso-btn-disabled-bg:transparent;--sso-btn-disabled-border-color:#0051eb;--sso-gradient:none}.btn-outline-secondary{--sso-btn-color:#6c757d;--sso-btn-border-color:#6c757d;--sso-btn-hover-color:#fff;--sso-btn-hover-bg:#6c757d;--sso-btn-hover-border-color:#6c757d;--sso-btn-focus-shadow-rgb:108,117,125;--sso-btn-active-color:#fff;--sso-btn-active-bg:#6c757d;--sso-btn-active-border-color:#6c757d;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#6c757d;--sso-btn-disabled-bg:transparent;--sso-btn-disabled-border-color:#6c757d;--sso-gradient:none}.btn-outline-success{--sso-btn-color:#28a745;--sso-btn-border-color:#28a745;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#28a745;--sso-btn-hover-border-color:#28a745;--sso-btn-focus-shadow-rgb:40,167,69;--sso-btn-active-color:#000;--sso-btn-active-bg:#28a745;--sso-btn-active-border-color:#28a745;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#28a745;--sso-btn-disabled-bg:transparent;--sso-btn-disabled-border-color:#28a745;--sso-gradient:none}.btn-outline-info{--sso-btn-color:#0dcaf0;--sso-btn-border-color:#0dcaf0;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#0dcaf0;--sso-btn-hover-border-color:#0dcaf0;--sso-btn-focus-shadow-rgb:13,202,240;--sso-btn-active-color:#000;--sso-btn-active-bg:#0dcaf0;--sso-btn-active-border-color:#0dcaf0;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#0dcaf0;--sso-btn-disabled-bg:transparent;--sso-btn-disabled-border-color:#0dcaf0;--sso-gradient:none}.btn-outline-warning{--sso-btn-color:#fa7d3f;--sso-btn-border-color:#fa7d3f;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#fa7d3f;--sso-btn-hover-border-color:#fa7d3f;--sso-btn-focus-shadow-rgb:250,125,63;--sso-btn-active-color:#000;--sso-btn-active-bg:#fa7d3f;--sso-btn-active-border-color:#fa7d3f;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#fa7d3f;--sso-btn-disabled-bg:transparent;--sso-btn-disabled-border-color:#fa7d3f;--sso-gradient:none}.btn-outline-danger{--sso-btn-color:#de363b;--sso-btn-border-color:#de363b;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#de363b;--sso-btn-hover-border-color:#de363b;--sso-btn-focus-shadow-rgb:222,54,59;--sso-btn-active-color:#000;--sso-btn-active-bg:#de363b;--sso-btn-active-border-color:#de363b;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#de363b;--sso-btn-disabled-bg:transparent;--sso-btn-disabled-border-color:#de363b;--sso-gradient:none}.btn-outline-light{--sso-btn-color:#eee;--sso-btn-border-color:#eee;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#eee;--sso-btn-hover-border-color:#eee;--sso-btn-focus-shadow-rgb:238,238,238;--sso-btn-active-color:#000;--sso-btn-active-bg:#eee;--sso-btn-active-border-color:#eee;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#eee;--sso-btn-disabled-bg:transparent;--sso-btn-disabled-border-color:#eee;--sso-gradient:none}.btn-outline-dark{--sso-btn-color:#212529;--sso-btn-border-color:#212529;--sso-btn-hover-color:#fff;--sso-btn-hover-bg:#212529;--sso-btn-hover-border-color:#212529;--sso-btn-focus-shadow-rgb:33,37,41;--sso-btn-active-color:#fff;--sso-btn-active-bg:#212529;--sso-btn-active-border-color:#212529;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#212529;--sso-btn-disabled-bg:transparent;--sso-btn-disabled-border-color:#212529;--sso-gradient:none}.btn-outline-white{--sso-btn-color:#fff;--sso-btn-border-color:#fff;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#fff;--sso-btn-hover-border-color:#fff;--sso-btn-focus-shadow-rgb:255,255,255;--sso-btn-active-color:#000;--sso-btn-active-bg:#fff;--sso-btn-active-border-color:#fff;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#fff;--sso-btn-disabled-bg:transparent;--sso-btn-disabled-border-color:#fff;--sso-gradient:none}.btn-outline-navy{--sso-btn-color:#002169;--sso-btn-border-color:#002169;--sso-btn-hover-color:#fff;--sso-btn-hover-bg:#002169;--sso-btn-hover-border-color:#002169;--sso-btn-focus-shadow-rgb:0,33,105;--sso-btn-active-color:#fff;--sso-btn-active-bg:#002169;--sso-btn-active-border-color:#002169;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#002169;--sso-btn-disabled-bg:transparent;--sso-btn-disabled-border-color:#002169;--sso-gradient:none}.btn-link{--sso-btn-font-weight:400;--sso-btn-color:var(--sso-link-color);--sso-btn-bg:transparent;--sso-btn-border-color:transparent;--sso-btn-hover-color:var(--sso-link-hover-color);--sso-btn-hover-border-color:transparent;--sso-btn-active-color:var(--sso-link-hover-color);--sso-btn-active-border-color:transparent;--sso-btn-disabled-color:#6c757d;--sso-btn-disabled-border-color:transparent;--sso-btn-box-shadow:none;--sso-btn-focus-shadow-rgb:38,107,238;text-decoration:none}.btn-link:focus-visible{color:var(--sso-btn-color)}.btn-link:hover{color:var(--sso-btn-hover-color)}.btn-lg,.btn-group-lg>.btn{--sso-btn-padding-y:.5rem;--sso-btn-padding-x:1rem;--sso-btn-font-size:1.25rem;--sso-btn-border-radius:.5rem}.btn-sm,.btn-group-sm>.btn{--sso-btn-padding-y:.25rem;--sso-btn-padding-x:.5rem;--sso-btn-font-size:.875rem;--sso-btn-border-radius:.25rem}.btn-close{box-sizing:content-box;width:1em;height:1em;padding:.25em;color:#000;background:transparent url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e\")center/1em auto no-repeat;border:0;border-radius:.375rem;opacity:.5}.btn-close:hover{color:#000;text-decoration:none;opacity:.75}.btn-close:focus{outline:0;box-shadow:0 0 0 .25rem #0051eb40;opacity:1}.btn-close:disabled,.btn-close.disabled{pointer-events:none;user-select:none;opacity:.25}.btn-close-white{filter:invert(1)grayscale(100%)brightness(200%)}.btn-success{--sso-btn-color:#000;--sso-btn-bg:#28a745;--sso-btn-border-color:#28a745;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#48b461;--sso-btn-hover-border-color:#3eb058;--sso-btn-focus-shadow-rgb:34,142,59;--sso-btn-active-color:#000;--sso-btn-active-bg:#53b96a;--sso-btn-active-border-color:#3eb058;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#28a745;--sso-btn-disabled-border-color:#28a745}.btn-success-subtle{--sso-btn-color:#000;--sso-btn-bg:#86e29b;--sso-btn-border-color:#86e29b;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#72c084;--sso-btn-hover-border-color:#6bb57c;--sso-btn-focus-shadow-rgb:114,192,132;--sso-btn-active-color:#000;--sso-btn-active-bg:#6bb57c;--sso-btn-active-border-color:#64aa74;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#86e29b;--sso-btn-disabled-border-color:#86e29b}.btn-success-subtle.back-icon{color:#28a745}.btn-info{--sso-btn-color:#000;--sso-btn-bg:#0dcaf0;--sso-btn-border-color:#0dcaf0;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#31d2f2;--sso-btn-hover-border-color:#25cff2;--sso-btn-focus-shadow-rgb:11,172,204;--sso-btn-active-color:#000;--sso-btn-active-bg:#3dd5f3;--sso-btn-active-border-color:#25cff2;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#0dcaf0;--sso-btn-disabled-border-color:#0dcaf0}.btn-info-subtle{--sso-btn-color:#000;--sso-btn-bg:#9ceafa;--sso-btn-border-color:#9ceafa;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#85c7d4;--sso-btn-hover-border-color:#7dbbc8;--sso-btn-focus-shadow-rgb:133,199,212;--sso-btn-active-color:#000;--sso-btn-active-bg:#7dbbc8;--sso-btn-active-border-color:#75b0bb;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#9ceafa;--sso-btn-disabled-border-color:#9ceafa}.btn-info-subtle.back-icon{color:#0dcaf0}.btn-warning{--sso-btn-color:#000;--sso-btn-bg:#fa7d3f;--sso-btn-border-color:#fa7d3f;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#fb915c;--sso-btn-hover-border-color:#fb8a52;--sso-btn-focus-shadow-rgb:213,106,54;--sso-btn-active-color:#000;--sso-btn-active-bg:#fb9765;--sso-btn-active-border-color:#fb8a52;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#fa7d3f;--sso-btn-disabled-border-color:#fa7d3f}.btn-warning-subtle{--sso-btn-color:#000;--sso-btn-bg:#fee2d4;--sso-btn-border-color:#fee2d4;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#d8c0b4;--sso-btn-hover-border-color:#cbb5aa;--sso-btn-focus-shadow-rgb:216,192,180;--sso-btn-active-color:#000;--sso-btn-active-bg:#cbb5aa;--sso-btn-active-border-color:#bea99f;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#fee2d4;--sso-btn-disabled-border-color:#fee2d4}.btn-warning-subtle.back-icon{color:#fa7d3f}.btn-danger{--sso-btn-color:#000;--sso-btn-bg:#de363b;--sso-btn-border-color:#de363b;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#e35458;--sso-btn-hover-border-color:#e14a4f;--sso-btn-focus-shadow-rgb:189,46,50;--sso-btn-active-color:#000;--sso-btn-active-bg:#e55e62;--sso-btn-active-border-color:#e14a4f;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#de363b;--sso-btn-disabled-border-color:#de363b}.btn-danger-subtle{--sso-btn-color:#000;--sso-btn-bg:#f4b9bb;--sso-btn-border-color:#f4b9bb;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#cf9e9f;--sso-btn-hover-border-color:#c39496;--sso-btn-focus-shadow-rgb:207,158,159;--sso-btn-active-color:#000;--sso-btn-active-bg:#c39496;--sso-btn-active-border-color:#b78b8c;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#f4b9bb;--sso-btn-disabled-border-color:#f4b9bb}.btn-danger-subtle.back-icon{color:#de363b}.btn-light{--sso-btn-color:#000;--sso-btn-bg:#eee;--sso-btn-border-color:#eee;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#cacaca;--sso-btn-hover-border-color:#bebebe;--sso-btn-focus-shadow-rgb:202,202,202;--sso-btn-active-color:#000;--sso-btn-active-bg:#bebebe;--sso-btn-active-border-color:#b3b3b3;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#eee;--sso-btn-disabled-border-color:#eee}.btn-light-subtle{--sso-btn-color:#000;--sso-btn-bg:#fff;--sso-btn-border-color:#fff;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#d9d9d9;--sso-btn-hover-border-color:#ccc;--sso-btn-focus-shadow-rgb:217,217,217;--sso-btn-active-color:#000;--sso-btn-active-bg:#ccc;--sso-btn-active-border-color:#bfbfbf;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#fff;--sso-btn-disabled-border-color:#fff}.btn-light-subtle.back-icon{color:#eee}.btn-dark{--sso-btn-color:#fff;--sso-btn-bg:#212529;--sso-btn-border-color:#212529;--sso-btn-hover-color:#fff;--sso-btn-hover-bg:#424649;--sso-btn-hover-border-color:#373b3e;--sso-btn-focus-shadow-rgb:66,70,73;--sso-btn-active-color:#fff;--sso-btn-active-bg:#4d5154;--sso-btn-active-border-color:#373b3e;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#fff;--sso-btn-disabled-bg:#212529;--sso-btn-disabled-border-color:#212529}.btn-dark-subtle{--sso-btn-color:#fff;--sso-btn-bg:#65727e;--sso-btn-border-color:#65727e;--sso-btn-hover-color:#fff;--sso-btn-hover-bg:#56606b;--sso-btn-hover-border-color:#515b65;--sso-btn-focus-shadow-rgb:124,135,145;--sso-btn-active-color:#fff;--sso-btn-active-bg:#515b65;--sso-btn-active-border-color:#4c555e;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#fff;--sso-btn-disabled-bg:#65727e;--sso-btn-disabled-border-color:#65727e}.btn-dark-subtle.back-icon{color:#212529}.btn-white{--sso-btn-color:#000;--sso-btn-bg:#fff;--sso-btn-border-color:#fff;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#fff;--sso-btn-hover-border-color:#fff;--sso-btn-focus-shadow-rgb:217,217,217;--sso-btn-active-color:#000;--sso-btn-active-bg:#fff;--sso-btn-active-border-color:#fff;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#fff;--sso-btn-disabled-border-color:#fff}.btn-white-subtle{--sso-btn-color:#000;--sso-btn-bg:#fff;--sso-btn-border-color:#fff;--sso-btn-hover-color:#000;--sso-btn-hover-bg:#d9d9d9;--sso-btn-hover-border-color:#ccc;--sso-btn-focus-shadow-rgb:217,217,217;--sso-btn-active-color:#000;--sso-btn-active-bg:#ccc;--sso-btn-active-border-color:#bfbfbf;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#fff;--sso-btn-disabled-border-color:#fff}.btn-white-subtle.back-icon{color:#fff}.btn-navy{--sso-btn-color:#fff;--sso-btn-bg:#002169;--sso-btn-border-color:#002169;--sso-btn-hover-color:#fff;--sso-btn-hover-bg:#001c59;--sso-btn-hover-border-color:#001a54;--sso-btn-focus-shadow-rgb:38,66,128;--sso-btn-active-color:#fff;--sso-btn-active-bg:#001a54;--sso-btn-active-border-color:#00194f;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#fff;--sso-btn-disabled-bg:#002169;--sso-btn-disabled-border-color:#002169}.btn-navy-subtle{--sso-btn-color:#000;--sso-btn-bg:#5087ff;--sso-btn-border-color:#5087ff;--sso-btn-hover-color:#fff;--sso-btn-hover-bg:#4472d9;--sso-btn-hover-border-color:#406ccc;--sso-btn-focus-shadow-rgb:68,114,217;--sso-btn-active-color:#fff;--sso-btn-active-bg:#406ccc;--sso-btn-active-border-color:#3c65bf;--sso-btn-active-shadow:inset 0 3px 5px #00000020;--sso-btn-disabled-color:#000;--sso-btn-disabled-bg:#5087ff;--sso-btn-disabled-border-color:#5087ff}.btn-navy-subtle.back-icon{color:#002169}input[type=\"text\"]:not(.bx--search-input){width:99%;margin:0 auto}.flex-lg-fill{flex:1 1 auto!important}.flex-lg-row{flex-direction:row!important}.flex-lg-column{flex-direction:column!important}.flex-lg-row-reverse{flex-direction:row-reverse!important}.flex-lg-column-reverse{flex-direction:column-reverse!important}.flex-lg-grow-0{flex-grow:0!important}.flex-lg-grow-1{flex-grow:1!important}.flex-lg-shrink-0{flex-shrink:0!important}.flex-lg-shrink-1{flex-shrink:1!important}.flex-lg-wrap{flex-wrap:wrap!important}.flex-lg-nowrap{flex-wrap:nowrap!important}";
+            
+            var head = document.head || document.getElementsByTagName('head')[0],
+            style = document.createElement('style');
+            head.appendChild(style);
+            style.type = 'text/css';
+            style.appendChild(document.createTextNode(customCSS));
+        }
+    </script>
+    <link rel="stylesheet" href="https://www.nycenet.edu/ui/apps/sites/sso/waves/css/sso.css" type="text/css">
+
+        <title>Sign in - NYCDOE Cloud Identity</title>
+        
+        <script type="text/javascript" src="https://unpkg.com/@ungap/url-search-params@0.2.2/min.js"></script>
+
+   <script>
+ (function (w) {
+
+    w.URLSearchParams = w.URLSearchParams || function (searchString) {
+        var self = this;
+        self.searchString = searchString;
+        self.get = function (name) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(self.searchString);
+            if (results == null) {
+                return null;
+            }
+            else {
+                return decodeURI(results[1]) || 0;
+            }
+        };
+    }
+
+})(window)
+
+</script>
+
+        <!-- script type="text/javascript" src="/idaas/mtfim/static/lsp.js?locale=en_US"></script -->
+		
+		<script>
+        
+
+		
+var params = new URLSearchParams(document.location.search);
+</script>
+
+
+		<script>
+		// START NON-TRANSLATABLE
+		const action = "/authsvc/mtfim/sps/authsvc?StateId=7148c924-4d1b-468c-8ec2-15ae87ed65c3";
+		const themeId = "default";
+		var errorMessage = "";
+		var isForgotUsernameEnabled = "false";
+        var isForgotPasswordEnabled = "false";
+		var username = "";
+		var loginHint = ""
+		// END NON-TRANSLATABLE
+		</script>
+		
+		<script>
+		
+		function redirectBackToWF(){		
+		//window.location.replace("/bpm/workflow/helper?reference=testwfmodelerv3&" + params.toString());
+			document.getElementById("username-form").style.display = "block";
+            document.getElementById("cloud-directory-form").style.display = "none";
+		}		
+
+
+	function showPasswordIcon() {
+    const passwordInput = document.getElementById("password-input");
+    const toggleButton = document.getElementById("toggle-password");
+	
+		
+		if (passwordInput.value.trim() === "") {
+		toggleButton.style.display = "none";
+		}else {
+			toggleButton.style.display = "block";		
+			var errorFeedback = document.getElementById('cs-error-message');
+			if (errorFeedback) {
+				errorFeedback.innerText = "";
+				csErrMessage.innerText="";
+			}
+			if(passwordInput){
+			passwordInput.classList.remove("is-invalid");
+			} 
+		
+		}    
+	}	
+	
+		
+		
+	function togglePasswordVisibility() {
+    const passwordInput = document.getElementById("password-input");
+    const toggleButton = document.getElementById("toggle-password");
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleButton.innerHTML = '<i class="fa-regular fa-eye-slash" title="Hide Password"></i>'; 
+    } else {
+        passwordInput.type = "password";
+        toggleButton.innerHTML = '<i class="fa-regular fa-eye" title="Show Password"></i>'; 
+    }
+	}
+
+	
+		function rmemail(str){
+		var ret = str.replace('@nycstudents.net','');
+		ret=ret.replace('@schools.nyc.gov','');
+		ret=ret.replace('@nycpublicschools.org','');
+		document.Login.username.value=ret;
+		}
+
+  	   function trimEMail(str){
+		var ret = str.toLowerCase().replace('@nycstudents.net','');
+		ret=ret.replace('@schools.nyc.gov','');
+		ret=ret.replace('@bers.nyc.gov','');
+		ret=ret.replace('@nycpublicschools.org','');
+		ret=ret.replace('@nycpublicschools.net','');
+		return ret;
+	}
+	function setFedSettings()
+	{
+		//var origValue=document.getElementById("user-name-input").value;
+		var origValue=document.getElementById("initial-user-name-input").value;	
+		//var newValue=origValue.toLowerCase().replace('@nycstudents.net','').replace('@bers.nyc.gov','').replace('@schools.nyc.gov','');
+		var newValue=trimEMail(origValue);
+		document.getElementById("username").value=newValue;	
+		document.getElementById("user-name-input").value=newValue;				
+	}
+		
+		function imgLError(img,src){
+			if(src=="L" && img.src.indexOf('.svg')>-1){
+				img.src="/template/v1.0/static/logo.png";				
+			}		
+		}
+
+
+		</script>
+
+    </head>
+
+	<body class="body-bg-image px-1 py-3 px-sm-4 py-sm-6 h-100">	
+
+		<main class="container">	
+		<div class="row">
+	 <div class="col-sm-10 col-md-8 col-lg-12 col-xxl-10 offset-sm-1 offset-md-2 offset-lg-0 offset-xxl-1">
+     <div class="title-form-card d-flex flex-column flex-lg-row shadow rounded-4 mb-6">
+		 <div class="card" id="appIdentityCard">
+                        <div class="card-body d-flex justify-content-center align-items-center">
+                            <div class="d-flex flex-column gap-2 justify-content-center">
+                                 <div class="d-flex justify-content-center" id="appIcon">
+                                 <!--   <svg role="img" aria-label="DOE Logo" class="text-white" style="height:40px; width:227px"><use xlink:href="wwwroot/icons/doelogos.svg#doe-public-schools-horz"></use></svg> -->
+									<img onerror="imgLError(this,'L')" src="https://www.nycenet.edu/ui/apps/sso-html/wwwroot/icons/doelogos/doe-public-schools-horz-white.svg" alt="NYC Public Schools Logo" style="height:40px; width:227px">
+                                </div>
+								
+                                <div id="appTitle" style="display: none;">
+                                    <div class="h5 mb-0 text-center text-white"></div>
+                                </div>
+                            </div>
+                        </div>
+         </div>		
+				
+				 <div class="card" id="signInCard">
+                        
+                        <h1 id="signIn_Header" class="mx-4 mt-6 mb-4 text-center">Sign In</h1>
+                        <div id="signIn_SubHeader"></div>
+                        
+                        <!-- Changes for new opt -->
+                        <div id="username-form" novalidate="" class="needs-validation mb-6 px-4 px-xxl-6">
+			    <div class="form-inputs mb-4">
+			        <label class="form-label" for="initial-user-name-input">Username or Email</label>
+			        <input id="initial-user-name-input" type="text" class="form-control" name="initial-user-name-input" placeholder="User name" value="">
+			         <div id="cs-error-message" class="text-danger mt-1"></div>
+			    </div>
+			    <div class="form-actions">
+			        <div class="d-flex flex-column gap-1">
+			            <button class="btn btn-success w-100 rounded-pill" id="username-button" value="login" type="button">Sign in</button>
+			        </div>
+			    </div>
+                       </div>
+                        <form id="cloud-directory-form" style="display:none" novalidate="" class="needs-validation mb-6 px-4 px-xxl-6" method="post">
+						<div class="form-inputs mb-4">
+						<button type="button" id="signInBackBtn" class="btn-danger-subtle btn btn-sm shadow-sm m-auto rounded-pill d-flex gap-3 justify-content-between align-items-center" onclick="redirectBackToWF()"><div class="d-flex gap-1 align-items-center">
+						<img class="user-icon" id="userIcon" alt="person" style="height: 25px; width: 25px;">
+						<span id="uname" class="user-email text-break d-inline-block"></span></div><i class="fa-solid fa-circle-chevron-left lh-1 fa-lg back-icon"></i></button></div>
+                            
+							<div class="form-inputs mb-4">
+                                <label class="form-label" id="lbluser-name-input" style="display:none;" for="user-name-input">Username or Email</label> 
+                               	<input id="user-name-input" type="text" style="display:none;" class="form-control" name="user-name-input" placeholder="User name" value=""> 
+                               	
+								
+								<label class="form-label" for="password-input">Password</label> 
+								<div id="input-container" class="password-input-wrapper" style="position: relative;">
+								
+								<input id="password-input" oninput="showPasswordIcon()" type="password" class="form-control" name="password" placeholder="Password" autocomplete="off" autofocus="">
+								<button type="button" id="toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; background: none; border: none; display: block;" onclick="togglePasswordVisibility()" aria-label="Toggle Password Visibility">
+								<i class="fa-regular fa-eye" title="Show Password"></i> 
+								</button>
+					
+					
+					<div id="cs-pwderror-message" class="text-danger mt-1"></div>
+							
+                            </div>
+                            <div class="form-actions">
+                                <div class="d-flex flex-column gap-1">
+                                    <button class="btn btn-success w-100 rounded-pill" id="login-button" value="login" type="submit">Sign in</button>
+                                </div>
+                            </div>
+							<input type="hidden" name="operation" value="verify">
+						   <input type="hidden" name="username" id="username">
+						         <div class="bottom-links text-center small pt-5 px-4 px-xxl-6" id="passwordLinks">								 
+								 
+                                <div class="d-flex flex-column gap-1" id="extlinks">
+                               
+                                </div> 
+								</div>						
+					
+
+<script>
+const errorMessages = {
+  PASSWORD_FIELD_BLANK: "Password is required",
+  PASSWORD_VALIDATION_FAIL: "Invalid password format",  
+  UserName_Required:"Username is required"
+};
+
+const external_links = {
+  EMP_PWD_PROFILE_MGMT: "https://idm.nycenet.edu/selfservice/Login.do",
+  EMP_FORGOT_PWD: "https://idm.nycenet.edu/selfservice20/index.html",
+  STUDENT_PWD_PROFILE_MGMT: "https://selfservice.schools.nyc/Profile/Index",
+  STUDENT_PWD_RESET_ADMIN: "https://idmapps.nycenet.edu/passwordreset",
+  STUDENT_FORGOT_PWD: "https://selfservice.schools.nyc/student",
+  EXTERNAL_FORGOT_PWD: "https://idm.nycenet.edu/externalss/index.html",
+  PARENT_FORGOT_PWD: "https://manage.schoolsaccount.nyc/forgotpassword?lc=en",
+};
+
+const icon_links = {
+  student: "https://www.nycenet.edu/ui/apps/sso-html/wwwroot/icons/lineo/lin-student-outline.svg",
+  person: "https://www.nycenet.edu/ui/apps/sso-html/wwwroot/icons/lineo/lin-person-circle.svg", 
+  person_blue: "https://www.nycenet.edu/ui/apps/sso-html/wwwroot/icons/lineo/lin-person-circle-blue.svg",
+  woman: "https://www.nycenet.edu/ui/apps/sso-html/wwwroot/icons/lineo/lin-woman-circle.svg",  
+};
+
+
+// Get form elements
+const passwdForm = document.getElementById("cloud-directory-form");
+const passwordInput = document.getElementById("password-input");
+const passwordError = document.getElementById("cs-error-message");
+const toggleButton = document.getElementById("toggle-password");
+const uname = document.getElementById("uname");
+const userNameInput = document.getElementById("user-name-input");
+const userNameHfield = document.getElementById("username");
+const signInBackBtn = document.getElementById("signInBackBtn");
+const userIcon = document.getElementById("userIcon");
+const targetDiv = document.getElementById('extlinks');
+
+const urlParams = new URLSearchParams(window.location.search);	    
+const login_hint = urlParams.get('login_hint');
+const usertype = urlParams.get('usertype');
+const uNameStep1 = document.getElementById('initial-user-name-input');
+
+console.log(usertype)
+
+if (signInBackBtn && userIcon && targetDiv) {
+
+if(usertype === "1") {
+  signInBackBtn.classList.remove("btn-danger-subtle");
+  signInBackBtn.classList.add("btn-warning-subtle");
+  userIcon.src = icon_links.student;
+  
+  var anchor1 = document.createElement('a');
+  anchor1.className = 'btn btn-link btn-sm';
+  anchor1.href = external_links.STUDENT_PWD_PROFILE_MGMT;
+  anchor1.target= '_blank';
+  anchor1.textContent = 'Password and Profile Management';
+  
+  var anchor2 = document.createElement('a');
+  anchor2.className = 'btn btn-link btn-sm';
+  anchor2.href = external_links.STUDENT_FORGOT_PWD;
+  anchor2.target= '_blank';
+  anchor2.textContent = 'Forgot Password?';
+  targetDiv.appendChild(anchor1);
+  targetDiv.appendChild(anchor2);
+
+}
+
+if(usertype === "2") {
+  signInBackBtn.classList.remove("btn-danger-subtle");
+  signInBackBtn.classList.add("btn-forest-subtle");
+  userIcon.src = icon_links.person;
+  
+  var anchor1 = document.createElement('a');
+  anchor1.className = 'btn btn-link btn-sm';
+  anchor1.href = external_links.EMP_PWD_PROFILE_MGMT;
+  anchor1.target= '_blank';
+  anchor1.textContent = 'Password and Profile Management';
+  
+  var anchor2 = document.createElement('a');
+  anchor2.className = 'btn btn-link btn-sm';
+  anchor2.href = external_links.STUDENT_PWD_RESET_ADMIN;
+  anchor2.target= '_blank';
+  anchor2.textContent = 'Student Password Reset Admin';
+  
+  var anchor3 = document.createElement('a');
+  anchor3.className = 'btn btn-link btn-sm';
+  anchor3.href = external_links.EMP_FORGOT_PWD;
+  anchor3.target= '_blank';
+  anchor3.textContent = 'Forgot Password?';
+  targetDiv.appendChild(anchor1);
+  targetDiv.appendChild(anchor2);
+  targetDiv.appendChild(anchor3);  
+}
+
+if(usertype === "3") {
+  signInBackBtn.classList.remove("btn-danger-subtle");
+  signInBackBtn.classList.add("btn-forest-subtle");
+  userIcon.src = icon_links.person;
+  
+  var anchor1 = document.createElement('a');
+  anchor1.className = 'btn btn-link btn-sm';
+  anchor1.href = external_links.EMP_PWD_PROFILE_MGMT;
+  anchor1.target= '_blank';
+  anchor1.textContent = 'Password and Profile Management';
+  
+  var anchor2 = document.createElement('a');
+  anchor2.className = 'btn btn-link btn-sm';
+  anchor2.href = external_links.EMP_FORGOT_PWD;
+  anchor2.target= '_blank';
+  anchor2.textContent = 'Forgot Password?';
+  targetDiv.appendChild(anchor1);
+  targetDiv.appendChild(anchor2);
+  
+}
+if(usertype === "4") {  
+  userIcon.src = icon_links.woman;
+  var anchor = document.createElement('a');
+  anchor.className = 'btn btn-link btn-sm';
+  anchor.href = external_links.PARENT_FORGOT_PWD;
+  anchor.target= '_blank';
+  anchor.textContent = 'Forgot Password?';
+  targetDiv.appendChild(anchor);
+  
+} 
+if(usertype === "5") {
+  signInBackBtn.classList.remove("btn-danger-subtle");
+  signInBackBtn.classList.add("btn-blue-subtle");
+  userIcon.src = icon_links.person_blue;
+  var anchor = document.createElement('a');
+  anchor.className = 'btn btn-link btn-sm';
+  anchor.href = external_links.EXTERNAL_FORGOT_PWD;
+  anchor.target= '_blank';
+  anchor.textContent = 'Forgot Password?';
+  targetDiv.appendChild(anchor);  
+}
+}
+
+
+if(login_hint){
+uname.textContent=trimEMail(login_hint);
+userNameInput.value=trimEMail(login_hint);
+userNameHfield.value=trimEMail(login_hint);
+uNameStep1.value=login_hint;
+}
+
+var errorString='';
+var csErrMessage=document.getElementById("cs-pwderror-message");
+csErrMessage.innerText="";
+var errMsg="";
+if(errorString.indexOf('CSIAH0303E')>-1){
+   errMsg='Incorrect Username or Password';
+var errorFeedback = document.getElementById('cs-error-message');
+ if (errorFeedback) {
+	errorFeedback.innerText = errMsg;
+	csErrMessage.innerText=errMsg;
+ }
+const passwordInput = document.getElementById("password-input");
+ if(passwordInput){
+	passwordInput.classList.add("is-invalid");
+	toggleButton.style.display = "none";
+ }
+}
+
+// Add event listener for form submission
+passwdForm.addEventListener("submit", function (e) {
+  e.preventDefault(); // Prevent the form from submitting by default
+  
+  // Get the value of the password input
+  const passwordValue = passwordInput.value; 
+  						
+
+  // Check for required field
+  if (!passwordValue.trim()) {
+    passwordError.textContent = errorMessages.PASSWORD_FIELD_BLANK;
+	passwordInput.classList.add("is-invalid");
+	 passwordInput.focus();
+	 toggleButton.style.display = "none";
+  } else if (/\s/.test(passwordValue)) { // Check for spaces
+    passwordError.textContent = errorMessages.PASSWORD_VALIDATION_FAIL;
+	passwordInput.classList.add("is-invalid");	
+    passwordInput.focus();
+	toggleButton.style.display = "none";	
+  } else {
+	var origValue=document.getElementById("user-name-input").value;	
+	        var newValue=origValue.toLowerCase().replace('@nycstudents.net','').replace('@bers.nyc.gov','').replace('@schools.nyc.gov','').replace('@nycpublicschools.net','');
+            document.getElementById("username").value=newValue;	
+			document.getElementById("user-name-input").value=newValue;	
+    // If validation passes, you can submit the form or take other actions
+    passwdForm.submit(); // For example, submit the form
+  }
+});
+		
+</script>
+				</div></form>	
+		
+				<div class="alternate-options-dropdown separator" id="alternate-options-dropdown" style="display:none;">
+            <div class="bx--form-item">
+                <div class="bx--dropdown__wrapper ">
+                    <ul data-dropdown="" data-value="" id="dropdown-id" class="bx--dropdown" tabindex="0">
+                        <li class="bx--dropdown-text" id="dropdown-text">Sign in another way</li>
+                        <li class="bx--dropdown__arrow-container">
+                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--dropdown__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 11L3 6l.7-.7L8 9.6l4.3-4.3.7.7z"></path></svg>
+                        </li>
+                        <li>
+                            <ul class="bx--dropdown-list" id="id-sources"></ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+</div>
+</div></main>			
+		
+		
+	<!-- Please do not move JS code from here, it may affect functionality -->
+
+<script type="text/javascript" src="/authsvc/mtfim/sps/static/common.js"></script>
+
+<script type="text/javascript" src="/authsvc/mtfim/sps/static/basicldapuser_login.js"></script> 
+
+<script type="text/javascript">
+
+window.onload = function() {
+	if (typeof cookieDisableMessage !== 'undefined') {
+		isCookieEnabled(cookieDisableMessage);
+	}
+}
+
+function showForgotPasswordLink(isForgotPasswordEnabled) {
+	if (isForgotPasswordEnabled === 'true') {
+		document.getElementById('forgot-password-link').style.display = 'inline-block'
+	}
+}
+
+function showForgotUsernameLink(isForgotUsernameEnabled) {
+	if (isForgotUsernameEnabled === 'true') {
+		document.getElementById('forgot-username-link').style.display = 'inline-block'
+	}
+}
+
+//function startLoginStateRefreshTimeout() {
+//	timeout(25, "/usc");
+//}
+
+function disableForm() {
+	document.getElementById("login-main-form").disabled = true
+}
+
+function setError(errorMessage) {
+	var field
+
+	field = document.getElementById('user-name-input')
+//	field.value = ''
+	field.classList.add('error')
+
+	field = document.getElementById('password-input')
+	field.value = ''
+	
+	field.classList.add('error')
+
+//	field = document.getElementById('login-error-message')
+//  field.classList.add('active')
+
+	field = document.getElementById('login-error-text')
+	field.innerHTML = errorMessage
+	setFocus()
+}
+
+window.showError = function (error) {
+	if (error.trim() !== "") {
+		setError(error.trim())
+	}
+}
+
+window.setFocus = function () {
+	var userNameField = document.getElementById("user-name-input")
+	if (userNameField.value.trim() !== ""){
+		document.getElementById('password-input').focus()
+	} else {
+		userNameField.focus()
+	}
+}
+
+window.inputClick = function (event) {
+	var inputField = event.currentTarget
+	if (inputField.classList && inputField.classList.contains("error")) {
+		if (inputField.id == "password-input") {
+			var userNameInput = document.getElementById("user-name-input")
+			if ((userNameInput) &&
+				(userNameInput.value)) {
+				resetInput(true)
+			} else {
+				resetInput()
+			}
+		} else {
+			resetInput()
+		}
+	}
+}
+
+window.setError = function (errorMessage) {
+	var field;
+
+	field = document.getElementById('user-name-input');
+	field.value = '';
+	field.classList.add('error');
+
+	field = document.getElementById('password-input');
+	field.value = '';
+	field.classList.add('error');
+	
+
+//	field = document.getElementById('login-error-message');
+//  field.classList.add('active');
+
+//	field = document.getElementById('login-error-text');
+//	field.innerHTML = errorMessage;
+	setFocus();
+};
+
+window.resetInput = function (keepUserNameInputValue) {
+	var field
+
+	field = document.getElementById('user-name-input')
+	if (!keepUserNameInputValue) {
+		field.value = ''
+	}
+	field.classList.remove('active')
+	field.classList.remove('input-done')
+	field.classList.remove('error')
+	field = document.getElementById('user-name-label')
+	field.classList.remove('active')
+	field.classList.remove('input-done')
+	field.classList.remove('error')
+
+	field = document.getElementById('password-input')
+	field.value = ''
+	field.classList.remove('active')
+	field.classList.remove('input-done')
+	field.classList.remove('error')
+	field = document.getElementById('password-label')
+	field.classList.remove('active')
+	field.classList.remove('input-done')
+	field.classList.remove('error')
+	field = document.getElementById('login-error-message')
+	field.classList.remove('active')
+}
+
+var pwdForm = document.getElementById("login-main-form")
+if(typeof pwdForm !== "undefined" && pwdForm !==null ){
+	pwdForm.action = buildTemplateFormAction("", action, themeId)
+	if(document.getElementById("login-button") !== null && pwdForm.hasAttribute("onsubmit")!==true){
+	  pwdForm.setAttribute("onsubmit", "disableById('login-button')")
+	}
+}
+//startLoginStateRefreshTimeout()
+
+if (typeof isForgotPasswordEnabled !== 'undefined') {
+	showForgotPasswordLink(isForgotPasswordEnabled);
+}
+
+if (typeof isForgotUsernameEnabled !== 'undefined') {
+	showForgotUsernameLink(isForgotUsernameEnabled);
+}
+
+showError(errorMessage)
+
+if (username != null && username.trim() !== "") {
+	var userNameField = document.getElementById('user-name-input');
+	userNameField.value = username;
+}
+
+
+
+//doIECheck()
+</script>
+	
+	
+	<script>
+    
+	
+    window.addEventListener("load", function(e) {
+		//setLangParam("forgot-password-link");
+		setFocus()
+
+        let params = new URLSearchParams(document.location.search);
+        //console.log('DEBUG: Loading: ${params.toString()}');
+        if (params.has("from_workflow") && params.get("from_workflow") == "1") {
+            document.getElementById("username-form").style.display = "none";
+            document.getElementById("cloud-directory-form").style.display = "block";
+        }
+        //setCrmBkView();
+		uNameStep1.addEventListener('keydown', function(event) {
+		  if (event.key === 'Enter') {		  
+		      if (uNameStep1.value.trim() == "") {
+		       uNameStep1.classList.add("is-invalid");
+		       passwordError.textContent = errorMessages.UserName_Required;
+		      }
+		      else{
+		          document.getElementById('username-button').click();
+		      }
+		  }
+		});
+		
+		if (uNameStep1.value.trim() == ""){
+			uNameStep1.focus()
+		}
+		else {
+			setFocus();
+		}
+    })
+
+   document.getElementById("username-button").addEventListener("click", function(e) {
+           setFedSettings();
+           var params = new URLSearchParams(document.location.search);
+           let username = trimEMail(document.getElementById("initial-user-name-input").value);
+           if (username == "") {
+               return;
+           }
+         
+        
+           window.location.replace("/flows/?reference=euiflow25opt&username=" + encodeURIComponent(username) + "&" + params.toString());
+    })
+</script>
+</body></html>
