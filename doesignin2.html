@@ -263,9 +263,12 @@ var params = new URLSearchParams(document.location.search);
                             </div>
                             <div class="form-actions">
                                 <div class="d-flex flex-column gap-1">
-									<a href="doesignin3.html">
-                                    <button class="btn btn-success w-100 rounded-pill" id="login-button" value="login" type="submit">Sign in</button>
-									</a>
+<button 
+  class="btn btn-success w-100 rounded-pill"
+  type="button"
+  onclick="window.location.href='doesignin3.html'">
+  Sign in
+</button>
                                 </div>
                             </div>
 							<input type="hidden" name="operation" value="verify">
