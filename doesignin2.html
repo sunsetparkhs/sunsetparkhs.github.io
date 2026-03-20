@@ -230,9 +230,9 @@ var params = new URLSearchParams(document.location.search);
 			    <!--div class="form-actions"-->
 			        <div class="d-flex flex-column gap-1">
 						<!--form action="doesignin3.html"-->
-						<a href="doesignin3.html">
-			            	<button class="btn btn-success w-100 rounded-pill" id="username-button" value="login" type="button">Sign in</button>
-						</a>
+<button class="btn btn-success..." id="username-button" type="button">
+    Sign in
+</button>
 						<!--/form-->
 			        <!--/div-->
 			    </div>
@@ -690,16 +690,9 @@ if (username != null && username.trim() !== "") {
 		}
     })
 
-   document.getElementById("username-button").addEventListener("click", function(e) {
-           setFedSettings();
-           var params = new URLSearchParams(document.location.search);
-           let username = trimEMail(document.getElementById("initial-user-name-input").value);
-           if (username == "") {
-               return;
-           }
-         
-        
-           window.location.replace("/flows/?reference=euiflow25opt&username=" + encodeURIComponent(username) + "&" + params.toString());
-    })
+document.getElementById("username-button").addEventListener("click", function() {
+    window.location.href = "doesignin3.html";
+});
+		
 </script>
 </body></html>
