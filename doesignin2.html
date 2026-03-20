@@ -230,9 +230,9 @@ var params = new URLSearchParams(document.location.search);
 			    <!--div class="form-actions"-->
 			        <div class="d-flex flex-column gap-1">
 						<!--form action="doesignin3.html"-->
-<button class="btn btn-success..." id="username-button" type="button">
-    Sign in
-</button>
+<a href="doesignin3.html"> 
+	<button class="btn btn-success w-100 rounded-pill" id="username-button" value="login" type="button">Sign in</button> 
+</a>
 						<!--/form-->
 			        <!--/div-->
 			    </div>
@@ -688,11 +688,10 @@ if (username != null && username.trim() !== "") {
 		else {
 			setFocus();
 		}
-    })
 
-document.getElementById("username-button").addEventListener("click", function() {
-    window.location.href = "doesignin3.html";
-});
+		//document.getElementById("username-button").addEventListener("click", function() {
+    //window.location.href = "doesignin3.html";
+//});
 		
 </script>
 </body></html>
