@@ -132,5 +132,38 @@
 	<script type="text/javascript" src="/authsvc/mtfim/sps/static/common.js"></script> 
 	<script type="text/javascript" src="/authsvc/mtfim/sps/static/macotp_login.js"></script>
 
+	<script>
+let timeLeft = 300; // 5 minutes = 300 seconds
+
+const timerElement = document.getElementById("ci-otp-timer");
+
+function updateTimer() {
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+
+    // Format like 05:00
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    timerElement.textContent = `${minutes}:${seconds}`;
+
+    if (timeLeft > 0) {
+        timeLeft--;
+    } else {
+        clearInterval(timerInterval);
+
+        // OPTIONAL: show expired message
+        document.getElementById("ci-time-not-expired-container").style.display = "none";
+        document.getElementById("ci-time-expired-container").style.display = "block";
+    }
+}
+
+// Run every second
+const timerInterval = setInterval(updateTimer, 1000);
+
+// Run immediately so it doesn't wait 1 second to start
+updateTimer();
+</script>
+
 
 </body></html>
