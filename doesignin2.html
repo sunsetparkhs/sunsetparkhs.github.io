@@ -256,7 +256,6 @@ var params = new URLSearchParams(document.location.search);
 								<button type="submit" id="toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; background: none; border: none; display: none;" onclick="togglePasswordVisibility()" aria-label="Toggle Password Visibility">
 								<i class="fa-regular fa-eye" title="Show Password"></i> 
 								</button>
-								</form>
 					
 					<div id="cs-pwderror-message" class="text-danger mt-1"></div>
 							
@@ -269,8 +268,9 @@ var params = new URLSearchParams(document.location.search);
   onclick="window.location.href='doesignin3.html'">
   Sign in
 </button>
-                                </div>
+								</div>
                             </div>
+								</form>
 							<input type="hidden" name="operation" value="verify">
 						   <input type="hidden" name="username" id="username" value="bb">
 						         <div class="bottom-links text-center small pt-5 px-4 px-xxl-6" id="passwordLinks">								 
